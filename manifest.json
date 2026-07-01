@@ -1,0 +1,44 @@
+{
+  "manifest_version": 3,
+  "name": "AutoSign",
+  "version": "0.1.6",
+  "description": "Save a signature once, then draw it into browser signature fields.",
+  "permissions": ["storage"],
+  "host_permissions": ["<all_urls>"],
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "96": "icons/icon-96.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_title": "AutoSign",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "24": "icons/icon-24.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["content/autosign.css"],
+      "js": ["src/shared/signature-engine.js", "content/autosign.js"],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "match_about_blank": true
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "autosign@local.dev",
+      "data_collection_permissions": {
+        "required": ["none"]
+      },
+      "strict_min_version": "142.0"
+    }
+  }
+}

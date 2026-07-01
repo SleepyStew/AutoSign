@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutoSign Editor</title>
+    <link rel="stylesheet" href="editor.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <h1>AutoSign Editor</h1>
+          <p id="statusText">Ready</p>
+        </div>
+        <div class="top-actions" aria-label="Primary actions">
+          <button id="doneButton" class="button button-ghost" type="button">Cancel</button>
+          <button id="saveButton" class="button button-primary" type="button">Save</button>
+        </div>
+      </header>
+
+      <section class="workspace">
+        <aside class="tool-panel" aria-label="Drawing controls">
+          <div class="button-grid">
+            <button id="referenceButton" class="button button-secondary" type="button">Add Reference Image</button>
+            <button id="undoButton" class="button button-secondary" type="button">Undo</button>
+            <button id="clearButton" class="button button-ghost" type="button">Clear</button>
+          </div>
+
+          <label class="setting">
+            <span>Thickness</span>
+            <input id="thicknessInput" type="range" min="1" max="8" step="0.25" value="2.6">
+          </label>
+          <label class="setting">
+            <span>Smoothness</span>
+            <input id="smoothnessInput" type="range" min="0" max="100" step="1" value="35">
+          </label>
+          <label class="setting">
+            <span>Ref opacity</span>
+            <input id="referenceOpacityInput" type="range" min="5" max="100" step="1" value="35">
+          </label>
+        </aside>
+
+        <section class="canvas-area" aria-label="Signature drawing area">
+          <canvas id="signatureCanvas" aria-label="Signature editor canvas"></canvas>
+        </section>
+      </section>
+
+      <input id="referenceInput" type="file" accept="image/*">
+    </main>
+
+    <script src="../src/shared/signature-engine.js"></script>
+    <script src="editor.js"></script>
+  </body>
+</html>

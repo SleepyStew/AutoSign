@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutoSign</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <div>
+          <h1>AutoSign</h1>
+          <p id="statusText">Ready</p>
+        </div>
+      </header>
+
+      <section class="signature-panel" aria-label="Saved signature preview">
+        <canvas id="previewCanvas" aria-label="Saved signature preview"></canvas>
+      </section>
+
+      <button id="editorButton" class="button button-secondary button-full" type="button" title="Open signature editor">Create Signature</button>
+
+      <section class="settings" aria-label="Fit settings">
+        <label class="setting">
+          <span>Padding</span>
+          <input id="paddingInput" type="range" min="0" max="22" value="8">
+        </label>
+      </section>
+
+      <button id="signPageButton" class="button button-primary button-full" type="button" disabled>Sign page</button>
+    </main>
+
+    <script src="../src/shared/signature-engine.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>
